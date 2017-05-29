@@ -23,6 +23,30 @@ def video_info(urls)
     response = HTTParty.get(url)
     responseTwo = response.parsed_response['items']
     responseTwo.each do |item|
-        puts item['snippet']['title'] #+ ' ' + item['contentDetails']['duration'] + ' ' + item['statistics']['viewCount'] + ' ' + item['statistics']['likeCount'] + ' ' + item['statistics']['dislikeCount'] + ' ' + item['statistics']['commentCount']
+        title = item['snippet']['title']
+        if title == nil
+            title = 'N/A'
+        end
+        duration = item['contentDetails']['duration']
+        if duration == nil
+            duration = 'N/A'
+        end
+        viewCount = item['statistics']['viewCount']
+        if viewCount == nil
+            viewCount = 'N/A'
+        end
+        likeCount = item['statistics']['likeCount']
+         if likeCount == nil
+            likeCount = 'N/A'
+        end
+        dislikeCount = item['statistics']['dislikeCount']
+         if dislikeCount == nil
+            dislikeCount = 'N/A'
+        end
+        commentCount = item['statistics']['commentCount']
+        if commentCount == nil
+            commentCount = 'N/A'
+        end
+        puts title + ' ' + duration + ' ' + viewCount + ' ' + likeCount + ' ' + dislikeCount + ' ' + commentCount
     end
 end
