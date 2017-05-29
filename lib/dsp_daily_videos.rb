@@ -13,6 +13,7 @@ end
 
 def search_latest_video(channelId, publishedAfter, publishedBefore)
     config_yaml = YAML::load_file("../config/application.yml")
+    video_list = []
 
     base = 'https://www.googleapis.com/youtube/v3/search?part=snippet&'    
     channel = 'channelId=' + channelId + '&'
@@ -27,9 +28,9 @@ def search_latest_video(channelId, publishedAfter, publishedBefore)
     responseTwo = response.parsed_response["items"]
     responseTwo.each do |item|
         id = item['id']
-        puts id['videoId']
+        video_list << id['videoId']
     end
-    
+   video_list 
 end
 
 search_latest_video(dspgaming, startD, endD)
