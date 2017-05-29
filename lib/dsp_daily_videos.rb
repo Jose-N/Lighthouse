@@ -23,10 +23,13 @@ def search_latest_video(channelId, publishedAfter, publishedBefore)
     key = config_yaml["data_key"]
     url = base + channel + middle + startDate + endDate + finish + key
 
-    puts url
     response = HTTParty.get(url)
-    response.parsed_response
-    puts response
+    responseTwo = response.parsed_response["items"]
+    responseTwo.each do |item|
+        id = item['id']
+        puts id['videoId']
+    end
+    
 end
 
 search_latest_video(dspgaming, startD, endD)
