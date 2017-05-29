@@ -22,10 +22,7 @@ def video_info(urls)
 
     response = HTTParty.get(url)
     responseTwo = response.parsed_response['items']
-end
-
-def statsTable(responseTwo)
-     responseTwo.each do |item|
+    responseTwo.each do |item|
         puts item['snippet']['title'] #+ ' ' + item['contentDetails']['duration'] + ' ' + item['statistics']['viewCount'] + ' ' + item['statistics']['likeCount'] + ' ' + item['statistics']['dislikeCount'] + ' ' + item['statistics']['commentCount']
     end
 end

@@ -23,4 +23,4 @@ endDate = endDate + time
 # Pull DSPGaming
 dspDaily = search_latest_video(dspgaming, startDate, endDate)
 
-statsTable(video_info(dspDaily))
+video_info(dspDaily)
