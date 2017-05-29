@@ -25,5 +25,6 @@ def search_latest_video(channelId, publishedAfter, publishedBefore)
         id = item['id']
         video_list << id['videoId']
     end
+    puts video_list
    video_list 
 end
