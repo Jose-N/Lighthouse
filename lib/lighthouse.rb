@@ -21,6 +21,6 @@ startDate = startDate + time
 endDate = endDate + time
 
 # Pull DSPGaming
-dspDaily = search_latest_video(dspgaming, startDate, endDate)
+search_latest_video(dspgaming, startDate, endDate)
 
-video_info(dspDaily)
+#video_info(dspDaily)

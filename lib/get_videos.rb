@@ -19,11 +19,14 @@ def search_latest_video(channelId, publishedAfter, publishedBefore)
     key = config_yaml["data_key"]
     url = base + channel + middle + startDate + endDate + finish + key
 
+    puts url
     response = HTTParty.get(url)
     responseTwo = response.parsed_response["items"]
     responseTwo.each do |item|
         id = item['id']
-        video_list << id['videoId']
+        if id != nil
+            video_list << id['videoId']
+        end
     end
    video_list 
 end
