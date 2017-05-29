@@ -2,11 +2,6 @@ require 'yaml'
 require 'httparty'
 require 'fileutils'
 
-
-dspgaming = 'UCGAQFQoZNIFUnQQuA-Llu9A'
-startD = '2017-05-26T00:00:00Z'
-endD = '2017-05-27T00:00:00Z'
-
 def convert_time_url(time)
     time.gsub!(':', '%3A')
 end
@@ -32,5 +27,3 @@ def search_latest_video(channelId, publishedAfter, publishedBefore)
     end
    video_list 
 end
-
-search_latest_video(dspgaming, startD, endD)
