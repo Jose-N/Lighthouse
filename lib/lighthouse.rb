@@ -16,19 +16,34 @@ answer = gets.chomp
 if answer == 'c'
     # Ask for the date/dates to pull videos from
     puts "What date do you want to get videos from? (year-month-date) \n For multiple dates use comma between them:"
-    startDate = gets.chomp
-    date_to_start = grab_dates(startDate)
+    startDate = gets.chomp.split(',')
+
+    date_to_start = []
+    date_to_end = []
+
+    grab_dates(startDate).each do |day1|
+        date_to_start << day1.to_s + time
+    end
+
+    puts startDate
+    get_tomorrow(grab_dates(startDate)).each do |day2|
+        date_to_end << day2.to_s + time
+    end
+
+    date_to_start.each.with_index do |day, index|
+        dspDaily = search_latest_video(dspgaming, day, date_to_end[index])
+        video_info(dspDaily, 'DSPGAMING')
+    end
 end
 
 
-date_of_videos
 
 # Pull DSPGaming
-dspDaily = search_latest_video(dspgaming, startHere, endHere)
-video_info(dspDaily, 'DSPGaming')
+#dspDaily = search_latest_video(dspgaming, startHere, endHere)
+#video_info(dspDaily, 'DSPGaming')
 
-koDaily = search_latest_video(kogaming, startHere, endHere)
-video_info(koDaily, 'KOGaming')
+#koDaily = search_latest_video(kogaming, startHere, endHere)
+#video_info(koDaily, 'KOGaming')
 
-kingDaily = search_latest_video(kingofhatevlogs, startHere, endHere)
-video_info(kingDaily, 'King of Hate')
+#kingDaily = search_latest_video(kingofhatevlogs, startHere, endHere)
+#video_info(kingDaily, 'King of Hate')

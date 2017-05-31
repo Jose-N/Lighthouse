@@ -1,6 +1,6 @@
 require 'date'
 
-def grab_dates(*date)
+def grab_dates(date)
     list = []
 
     if date.size == 1
