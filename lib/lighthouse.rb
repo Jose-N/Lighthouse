@@ -1,5 +1,6 @@
 require_relative 'video_info'
 require_relative 'get_videos'
+require_relative 'grab_date'
 
 # Channels to search
 dspgaming = 'UCGAQFQoZNIFUnQQuA-Llu9A'
@@ -28,4 +29,4 @@ koDaily = search_latest_video(kogaming, startHere, endHere)
 video_info(koDaily, 'KOGaming')
 
 kingDaily = search_latest_video(kingofhatevlogs, startHere, endHere)
-video_info(kingDaily, 'King_of_hate')
+video_info(kingDaily, 'King of Hate')
