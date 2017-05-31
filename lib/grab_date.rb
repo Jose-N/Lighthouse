@@ -20,7 +20,7 @@ def grab_dates(*date)
 end
 
 def get_yesterday(first_day)
-    yesterday =[]
+    yesterday = []
     first_day.each do |day|
         unless day.kind_of?(String)
             yesterday << day.prev_day
@@ -29,4 +29,16 @@ def get_yesterday(first_day)
         end
     end
     yesterday
+end
+
+def get_tomorrow(first_day)
+    tomorrow = []
+    first_day.each do |day|
+        unless day.kind_of?(String)
+            tomorrow << day.next_day
+        else
+            puts "One of these things isnt a date"
+        end
+    end
+    tomorrow
 end
