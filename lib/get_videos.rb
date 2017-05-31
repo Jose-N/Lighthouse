@@ -13,12 +13,13 @@ def search_latest_video(channelId, publishedAfter, publishedBefore)
     base = 'https://www.googleapis.com/youtube/v3/search?part=snippet&'    
     channel = 'channelId=' + channelId + '&'
     middle = 'maxResults=50&order=date&'
-    startDate = 'publishedAfter=' + convert_time_url(publishedAfter) + '&'
-    endDate = 'publishedBefore=' + convert_time_url(publishedBefore) + '&'
+    sDate = "publishedAfter=#{publishedAfter}&"
+    eDate = "publishedBefore=#{publishedBefore}&"
     finish = 'type=vodep&fields=items(id%2FvideoId%2Csnippet(publishedAt%2Ctitle))%2CpageInfo%2FtotalResults&key='
     key = config_yaml["data_key"]
-    url = base + channel + middle + startDate + endDate + finish + key
+    url = base + channel + middle + sDate + eDate + finish + key
 
+    puts url
     response = HTTParty.get(url)
     responseTwo = response.parsed_response["items"]
     responseTwo.each do |item|

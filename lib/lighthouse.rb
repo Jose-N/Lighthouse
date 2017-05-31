@@ -17,10 +17,15 @@ date = startDate[8...10].to_i
 # Logic to get what the next date will be and adds time to the date
 tom = (date + 1).to_s
 endDate = startDate[0...-2] + tom
-startDate = startDate + time
-endDate = endDate + time
+startHere = convert_time_url(startDate + time)
+endHere = convert_time_url(endDate + time)
 
 # Pull DSPGaming
-dspDaily = search_latest_video(dspgaming, startDate, endDate)
+dspDaily = search_latest_video(dspgaming, startHere, endHere)
+video_info(dspDaily, 'DSPGaming')
 
-video_info(dspDaily)
+koDaily = search_latest_video(kogaming, startHere, endHere)
+video_info(koDaily, 'KOGaming')
+
+kingDaily = search_latest_video(kingofhatevlogs, startHere, endHere)
+video_info(kingDaily, 'King_of_hate')

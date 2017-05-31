@@ -1,8 +1,9 @@
 require 'yaml'
 require 'httparty'
 require 'fileutils'
+require_relative 'make_csv'
 
-def video_info(urls)
+def video_info(urls, channel_name)
     config_yaml = YAML::load_file("../config/application.yml")
     videos = ""
 
@@ -47,6 +48,7 @@ def video_info(urls)
         if commentCount == nil
             commentCount = 'N/A'
         end
-        puts title + ' ' + duration + ' ' + viewCount + ' ' + likeCount + ' ' + dislikeCount + ' ' + commentCount
+       data =  [title, duration, viewCount, likeCount, dislikeCount, commentCount]
+       make_csv(data, channel_name)
     end
 end
