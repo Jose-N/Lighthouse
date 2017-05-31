@@ -15,5 +15,3 @@ def grab_dates(*date)
         puts 'please enter a date or dates'
     end
 end
-
-grab_dates()
