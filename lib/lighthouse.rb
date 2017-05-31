@@ -33,17 +33,12 @@ if answer == 'c'
     date_to_start.each.with_index do |day, index|
         dspDaily = search_latest_video(dspgaming, day, date_to_end[index])
         video_info(dspDaily, 'DSPGAMING')
+
+        koDaily = search_latest_video(kogaming, day , date_to_end[index])
+        video_info(koDaily, 'KOGAMING')
+
+        kingDaily = search_latest_video(kingofhatevlogs, day, date_to_end[index])
+        video_info(kingDaily, 'KingOfHateVlogs')
     end
 end
 
-
-
-# Pull DSPGaming
-#dspDaily = search_latest_video(dspgaming, startHere, endHere)
-#video_info(dspDaily, 'DSPGaming')
-
-#koDaily = search_latest_video(kogaming, startHere, endHere)
-#video_info(koDaily, 'KOGaming')
-
-#kingDaily = search_latest_video(kingofhatevlogs, startHere, endHere)
-#video_info(kingDaily, 'King of Hate')
