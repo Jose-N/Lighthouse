@@ -11,7 +11,9 @@ def grab_dates(*date)
         date.each do |day|
             puts day
         end
+    else 
+        puts 'please enter a date or dates'
     end
 end
 
-grab_dates('2017-05-30', '2017-05-20', '2017-05-21')
+grab_dates()
